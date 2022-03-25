@@ -70,6 +70,9 @@
 
                                     <a class="dropdown-item" href="{{ route('register') }}">Registrar usuario</a>
                                     <a class="dropdown-item" href="{{route('usuarios.index')}}">Lista de usuarios</a>
+                                    <a class="dropdown-item" href="{{route('plataformas.register')}}">Registrar plataformas</a>
+                                    <a class="dropdown-item" href="{{route('plataformas.index')}}">Lista de plataformas</a>
+
                                 </div>
                             </li>
                         @endguest

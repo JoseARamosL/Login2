@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\PlataformaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,7 @@ Route::get('/usuarios', [UserController::class, 'index'])->name('usuarios.index'
 Route::get('/usuarios/{id}', [UserController::class, 'edit'])->name('usuarios.edit');//Mostrar vista de actualizar
 Route::put('/usuarios/{id}', [UserController::class, 'update'])->name('usuarios.update');//Actualizar usuarios
 Route::delete('/usuarios/{id}', [UserController::class, 'destroy'])->name('usuarios.destroy');//Eliminar usuarios
+
+Route::get('/plataformas', [PlataformaController::class, 'index'])->name('plataformas.index');//Mostrar plataformas
+Route::get('/plataformas/register', [PlataformaController::class, 'registerPlataforma'])->name('plataformas.register');//Mostrar registro de plataformas
+Route::post('/plataformas/store', [PlataformaController::class, 'store'])->name('plataformas.store');//Crear plataformas
