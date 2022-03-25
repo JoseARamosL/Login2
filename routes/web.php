@@ -27,5 +27,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::get('/usuarios', [UserController::class, 'index'])->name('usuarios.index');//Mostrar usuarios
-Route::put('/usuarios/{id}', [UserController::class, 'update']);//Actualizar usuarios
+Route::get('/usuarios/{id}', [UserController::class, 'edit'])->name('usuarios.edit');//Mostrar vista de actualizar
+Route::put('/usuarios/{id}', [UserController::class, 'update'])->name('usuarios.update');//Actualizar usuarios
 Route::delete('/usuarios/{id}', [UserController::class, 'destroy'])->name('usuarios.destroy');//Eliminar usuarios

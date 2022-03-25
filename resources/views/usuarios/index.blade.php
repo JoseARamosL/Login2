@@ -20,6 +20,11 @@
                                         @method('delete')
                                         <button class="btn btn-secondary" type="submit">Eliminar</button>
                                     </form>
+                                    <br>
+                                    <form action="{{route('usuarios.edit', $usuario)}}" method="GET">
+                                        @csrf
+                                        <button class="btn btn-secondary" type="submit">Editar</button>
+                                    </form>
                                 </div>
                             </li>
                         @endforeach

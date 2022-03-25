@@ -29,9 +29,10 @@ class UserController extends Controller
         //
     }
 
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $usuario = User::findOrFail($request->id);
+        return view('usuarios.edit', compact('usuario'));
     }
 
     public function update(Request $request)
@@ -46,7 +47,8 @@ class UserController extends Controller
 
         $usuario->save();
 
-        return $usuario;
+        $usuarios = User::orderBy('id', 'desc')->paginate();
+        return view('usuarios.index', compact('usuarios'));
 
     }
 
