@@ -35,3 +35,6 @@ Route::delete('/usuarios/{id}', [UserController::class, 'destroy'])->name('usuar
 Route::get('/plataformas', [PlataformaController::class, 'index'])->name('plataformas.index');//Mostrar plataformas
 Route::get('/plataformas/register', [PlataformaController::class, 'registerPlataforma'])->name('plataformas.register');//Mostrar registro de plataformas
 Route::post('/plataformas/store', [PlataformaController::class, 'store'])->name('plataformas.store');//Crear plataformas
+Route::get('/plataformas/{id}', [PlataformaController::class, 'edit'])->name('plataformas.edit');//Mostrar vista de actualizar
+Route::put('/plataformas/{id}', [PlataformaController::class, 'update'])->name('plataformas.update');//Actualizar plataformas
+Route::delete('/plataformas/{id}', [PlataformaController::class, 'destroy'])->name('plataformas.destroy');//Eliminar plataformas

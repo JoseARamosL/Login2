@@ -44,9 +44,10 @@ class PlataformaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $plataforma = Plataforma::findOrFail($request->id);
+        return view('plataformas.edit', compact('plataforma'));
     }
 
     /**
@@ -56,9 +57,15 @@ class PlataformaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $plataforma = Plataforma::findOrFail($request->id);
+        $plataforma->name = $request->name;
+
+        $plataforma->save();
+
+        $plataformas = Plataforma::orderBy('id', 'desc')->paginate();
+        return view('plataformas.index', compact('plataformas'));
     }
 
     /**
@@ -67,8 +74,10 @@ class PlataformaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $plataforma = Plataforma::destroy($request->id);
+        $plataformas = Plataforma::orderBy('id', 'desc')->paginate();
+        return view('plataformas.index', compact('plataformas'));
     }
 }

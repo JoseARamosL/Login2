@@ -14,18 +14,18 @@
                                 <div>
                                     {{$plataforma->name}}
                                 </div>
-                                {{-- <div>
-                                    <form action="{{route('usuarios.destroy', $plataforma)}}" method="POST">
+                                <div>
+                                    <form action="{{route('plataformas.destroy', $plataforma)}}" method="POST">
                                         @csrf
                                         @method('delete')
                                         <button class="btn btn-secondary" type="submit">Eliminar</button>
                                     </form>
                                     <br>
-                                    <form action="{{route('usuarios.edit', $plataforma)}}" method="GET">
+                                    <form action="{{route('plataformas.edit', $plataforma)}}" method="GET">
                                         @csrf
                                         <button class="btn btn-secondary" type="submit">Editar</button>
                                     </form>
-                                </div> --}}
+                                </div>
                             </li>
                         @endforeach
                     </ul>

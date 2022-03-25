@@ -55,6 +55,7 @@ class UserController extends Controller
     public function destroy(Request $request)
     {
         $usuario = User::destroy($request->id);
-        return view('welcome');
+        $usuarios = User::orderBy('id', 'desc')->paginate();
+        return view('usuarios.index', compact('usuarios'));
     }
 }
