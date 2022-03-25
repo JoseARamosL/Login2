@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +22,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/usuarios', [UserController::class, 'index'])->name('usuarios.index');//Mostrar usuarios
+Route::put('/usuarios/{id}', [UserController::class, 'update']);//Actualizar usuarios
+Route::delete('/usuarios/{id}', [UserController::class, 'destroy'])->name('usuarios.destroy');//Eliminar usuarios
