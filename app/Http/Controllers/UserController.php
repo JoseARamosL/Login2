@@ -37,6 +37,33 @@ class UserController extends Controller
 
     public function update(Request $request)
     {
+        $capacidades = [];
+
+        if(isset($_POST['btnEditar'])){
+            $checkInstagram = false;
+            $checkTwitter = false;
+            $checkFacebook = false;
+
+            if(isset($_POST['instagram'])){
+                $checkInstagram = $_POST['instagram'];
+            }
+
+            if(isset($_POST['twitter'])){
+                $checkTwitter = $_POST['twitter'];
+            }
+
+            if(isset($_POST['facebook'])){
+                $checkFacebook = $_POST['facebook'];
+            }
+
+            $capacidades =[
+                'Instagram' => $checkInstagram,
+                'Twitter' => $checkTwitter,
+                'Facebook' => $checkFacebook
+            ];
+
+        }
+
         $usuario = User::findOrFail($request->id);
         $usuario->name = $request->name;
         $usuario->phone = $request->phone;
@@ -44,6 +71,7 @@ class UserController extends Controller
         $usuario->email = $request->email;
         $usuario->password = $request->password;
         $usuario->role = $request->role;
+        $usuario->capacidades = $capacidades;
 
         $usuario->save();
 

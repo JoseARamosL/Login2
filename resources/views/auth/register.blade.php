@@ -119,9 +119,25 @@
                             </div>
                         </div>
 
+                        <!--CAPACIDADES-->
+                        <div class="row mb-3">
+                            <label for="instagram" class="col-md-4 col-form-label text-md-end">Instagram</label>
+
+
+                            <div class="col-md-6">
+                                <input id="instagram" name="instagram" type="checkbox" value="true" class="form-check-input">
+                                <label for="twitter" class="col-md-4 col-form-label text-md-end">Twitter</label>
+                                <input id="twitter" name="twitter" type="checkbox" value="true" class="form-check-input">
+                                <label for="facebook" class="col-md-4 col-form-label text-md-end">Facebook</label>
+                                <input id="facebook" name="facebook" type="checkbox" value="true" class="form-check-input">
+                            </div>
+                        </div>
+
+
+                        <!--BUTTON-->
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button id="btnRegistrar" name="btnRegistrar" type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
                             </div>
