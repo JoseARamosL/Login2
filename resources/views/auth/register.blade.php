@@ -26,40 +26,6 @@
                             </div>
                         </div>
 
-                        <!--PHONE-->
-                        <div class="row mb-3">
-                            <label for="phone"
-                                class="col-md-4 col-form-label text-md-end">{{ __('Telefono') }}</label>
-
-                            <div class="col-md-6">
-                                <input pattern="\[0-9]{9}" id="phone" type="tel"
-                                    class="form-control @error('phone') is-invalid @enderror" name="phone"
-                                    value="{{ old('phone') }}" required autocomplete="phone" autofocus>
-
-                                @error('phone')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <!--DNI-->
-                        <div class="row mb-3">
-                            <label for="DNI" class="col-md-4 col-form-label text-md-end">DNI</label>
-
-                            <div class="col-md-6">
-                                <input id="DNI" type="text" class="form-control" name="DNI"
-                                    value="{{ old('DNI') }}" required autocomplete="DNI" autofocus>
-
-                                @error('DNI')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
                         <!--EMAIL-->
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>

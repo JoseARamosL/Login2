@@ -6,50 +6,42 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header div__space">
-                    Lista de usuarios
-                    <form action="{{route('usuarios.create')}}" method="GET">
+                    Lista de Conceptos
+                    <form action="{{route('conceptos.create')}}" method="GET">
                         @csrf
-                        <button class="btn__div">Crear Usuario</button>
+                        <button class="btn__div">Crear Concepto</button>
                     </form>
                 </div>
 
                 <div class="card-body table-responsive">
                     <ul class="list-group">
-                        <table class="table table-striped table-bordered table1">
+                        <table class="table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    <td>Código Cliente</td>
-                                    <td>Nombre</td>
-                                    <td>NIF</td>
-                                    <td>Domicilio</td>
-                                    <td>Población</td>
-                                    <td>Código Postal</td>
-                                    <td>Provincia</td>
-                                    <td>País</td>
-                                    <td>Fecha de Alta</td>
+                                    <td>Concepto</td>
+                                    <td>Unidades</td>
+                                    <td>Precio</td>
+                                    <td>Importe</td>
+                                    <td>Número de factura</td>
                                     <td>Acciones</td>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                @foreach ($usuarios as $usuario)
+                                @foreach ($conceptos as $concepto)
                                     <tr>
-                                        <td>{{ $usuario->id }}</td>
-                                        <td>{{ $usuario->nombre }}</td>
-                                        <td>{{ $usuario->NIF }}</td>
-                                        <td>{{ $usuario->domicilio }}</td>
-                                        <td>{{ $usuario->poblacion }}</td>
-                                        <td>{{ $usuario->codigo_postal }}</td>
-                                        <td>{{ $usuario->provincia }}</td>
-                                        <td>{{ $usuario->pais }}</td>
-                                        <td>{{ $usuario->fecha_de_alta}}</td>
+                                        <td>{{ $concepto->concepto }}</td>
+                                        <td>{{ $concepto->unidades }}</td>
+                                        <td>{{ $concepto->precio }}</td>
+                                        <td>{{ $concepto->importe }}</td>
+                                        <td>{{ $concepto->factura_id }}</td>
                                         <td>
-                                            <form action="{{route('usuarios.destroy', $usuario)}}" method="POST" class="inline">
+                                            <form action="{{route('conceptos.destroy', $concepto)}}" method="POST">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="btn btn-secondary btn1" type="submit">Eliminar</button>
                                             </form>
-                                            <form action="{{route('usuarios.edit', $usuario)}}" method="GET" class="inline">
+                                            <form action="{{route('conceptos.edit', $concepto)}}" method="GET">
                                                 @csrf
                                                 <button class="btn btn-secondary btn2" type="submit">Editar</button>
                                             </form>
@@ -68,6 +60,11 @@
 
 <style>
 
+    .form__btn {
+        padding-top: 25px;
+        text-align: center;
+    }
+
     .btn__div {
         background-color: lightblue;
         border-radius: 10px;
@@ -75,9 +72,6 @@
     .div__space {
         display: flex;
         justify-content: space-between;
-    }
-    .inline {
-        display: inline;
     }
 
     .btn1 {

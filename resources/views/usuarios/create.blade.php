@@ -5,21 +5,20 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Editar</div>
+                <div class="card-header">Crear</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('usuarios.update', $usuario->id) }}">
+                    <form method="POST" action="{{route('usuarios.store')}}">
                         @csrf
-                        @method('put')
 
-                        <!--NAME-->
+                        <!--NOMBRE-->
                         <div class="row mb-3">
                             <label for="nombre" class="col-md-4 col-form-label text-md-end">{{ __('nombre') }}</label>
 
                             <div class="col-md-6">
                                 <input id="nombre" type="string"
                                 class="form-control @error('nombre') is-invalid @enderror"
-                                name="nombre" placeholder="{{$usuario->nombre}}" value="{{$usuario->nombre}}"
+                                name="nombre" placeholder="nombre"
                                 required autocomplete="nombre" autofocus>
 
                                 @error('name')
@@ -30,13 +29,13 @@
                             </div>
                         </div>
 
-                        <!--DNI-->
+                        <!--NIF-->
                         <div class="row mb-3">
                             <label for="NIF" class="col-md-4 col-form-label text-md-end">NIF</label>
 
                             <div class="col-md-6">
                                 <input id="NIF" type="text" class="form-control" name="NIF"
-                                    value="{{$usuario->NIF}}" placeholder="{{$usuario->NIF}}" required autocomplete="NIF" autofocus>
+                                    placeholder="NIF" required autocomplete="NIF" autofocus>
 
                                 @error('NIF')
                                     <span class="invalid-feedback" role="alert">
@@ -51,8 +50,18 @@
                             <label for="domicilio" class="col-md-4 col-form-label text-md-end">Domicilio</label>
 
                             <div class="col-md-6">
-                                <input id="Domicilio" type="text" class="form-control" name="domicilio"
-                                    value="{{$usuario->domicilio}}" placeholder="{{$usuario->domicilio}}" required autocomplete="domicilio" autofocus>
+                                <input id="domicilio" type="text" class="form-control" name="domicilio"
+                                    placeholder="Domicilio" required autocomplete="domicilio" autofocus>
+                            </div>
+                        </div>
+
+                        <!--CODIGO POSTAL-->
+                        <div class="row mb-3">
+                            <label for="codigo_postal" class="col-md-4 col-form-label text-md-end">Código Postal</label>
+
+                            <div class="col-md-6">
+                                <input id="codigo_postal" type="number" class="form-control" name="codigo_postal"
+                                    placeholder="codigo postal" required autocomplete="codigo_postal" autofocus>
                             </div>
                         </div>
 
@@ -62,7 +71,7 @@
 
                             <div class="col-md-6">
                                 <input id="Poblacion" type="text" class="form-control" name="poblacion"
-                                    value="{{$usuario->poblacion}}" placeholder="{{$usuario->poblacion}}" required autocomplete="poblacion" autofocus>
+                                    placeholder="Poblacion" required autocomplete="poblacion" autofocus>
                             </div>
                         </div>
 
@@ -72,7 +81,7 @@
 
                             <div class="col-md-6">
                                 <input id="provincia" type="text" class="form-control" name="provincia"
-                                    value="{{$usuario->provincia}}" placeholder="{{$usuario->provincia}}" required autocomplete="provincia" autofocus>
+                                    placeholder="Provincia" required autocomplete="provincia" autofocus>
                             </div>
                         </div>
 
@@ -82,7 +91,7 @@
 
                             <div class="col-md-6">
                                 <input id="pais" type="text" class="form-control" name="pais"
-                                    value="{{$usuario->pais}}" placeholder="{{$usuario->pais}}" required autocomplete="provincia" autofocus>
+                                    placeholder="Pais" required autocomplete="provincia" autofocus>
                             </div>
                         </div>
 
@@ -92,14 +101,14 @@
 
                             <div class="col-md-6">
                                 <input id="fecha_de_alta" type="date" class="form-control" name="fecha_de_alta"
-                                    value="{{$usuario->fecha_de_alta}}" placeholder="{{$usuario->fecha_de_alta}}" required autocomplete="fecha_de_alta" autofocus>
+                                    placeholder="Fecha de alta" required autocomplete="fecha_de_alta" autofocus>
                             </div>
                         </div>
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button name="btnEditar" id="btnEditar" type="submit" class="btn btn-primary">
-                                    Actualizar
+                                <button name="btnCrear" id="btnCrear" type="submit" class="btn btn-primary">
+                                    Crear
                                 </button>
                             </div>
                         </div>

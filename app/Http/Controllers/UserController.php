@@ -10,18 +10,22 @@ class UserController extends Controller
 
     public function index()
     {
-        $usuarios = User::orderBy('id', 'desc')->paginate();
+        $usuarios = User::orderBy('id', 'asc')->paginate();
         return view('usuarios.index', compact('usuarios'));
     }
 
     public function create()
     {
-        //
+        return view('usuarios.create');
     }
 
     public function store(Request $request)
     {
-        //
+        $usuario = User::create($request->all());
+
+        $usuario->save();
+
+        return redirect()->route('usuarios.index');
     }
 
     public function show($id)
@@ -37,41 +41,14 @@ class UserController extends Controller
 
     public function update(Request $request)
     {
-        $capacidades = [];
-
-        if(isset($_POST['btnEditar'])){
-            $checkInstagram = false;
-            $checkTwitter = false;
-            $checkFacebook = false;
-
-            if(isset($_POST['instagram'])){
-                $checkInstagram = $_POST['instagram'];
-            }
-
-            if(isset($_POST['twitter'])){
-                $checkTwitter = $_POST['twitter'];
-            }
-
-            if(isset($_POST['facebook'])){
-                $checkFacebook = $_POST['facebook'];
-            }
-
-            $capacidades =[
-                'Instagram' => $checkInstagram,
-                'Twitter' => $checkTwitter,
-                'Facebook' => $checkFacebook
-            ];
-
-        }
-
         $usuario = User::findOrFail($request->id);
-        $usuario->name = $request->name;
-        $usuario->phone = $request->phone;
-        $usuario->DNI = $request->DNI;
-        $usuario->email = $request->email;
-        $usuario->password = $request->password;
-        $usuario->role = $request->role;
-        $usuario->capacidades = $capacidades;
+        $usuario->nombre = $request->nombre;
+        $usuario->NIF = $request->NIF;
+        $usuario->domicilio = $request->domicilio;
+        $usuario->poblacion = $request->poblacion;
+        $usuario->provincia = $request->provincia;
+        $usuario->pais = $request->pais;
+        $usuario->fecha_de_alta = $request->fecha_de_alta;
 
         $usuario->save();
 
@@ -83,7 +60,7 @@ class UserController extends Controller
     public function destroy(Request $request)
     {
         $usuario = User::destroy($request->id);
-        $usuarios = User::orderBy('id', 'desc')->paginate();
+        $usuarios = User::orderBy('id', 'asc')->paginate();
         return view('usuarios.index', compact('usuarios'));
     }
 }

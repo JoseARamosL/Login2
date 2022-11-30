@@ -8,11 +8,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class Factura extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [
-        'nombre', 'NIF', 'domicilio', 'codigo_postal', 'pais', 'poblacion', 'fecha_de_alta', 'provincia'
+        'numero_de_factura', 'user_id', 'fecha'
     ];
 }
